@@ -24,6 +24,124 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				
+				/* Base Colors */
+				white: 'hsl(var(--white))',
+				black: 'hsl(var(--black))',
+				
+				/* Gray Scale */
+				gray: {
+					25: 'hsl(var(--gray-25))',
+					50: 'hsl(var(--gray-50))',
+					100: 'hsl(var(--gray-100))',
+					200: 'hsl(var(--gray-200))',
+					300: 'hsl(var(--gray-300))',
+					400: 'hsl(var(--gray-400))',
+					500: 'hsl(var(--gray-500))',
+					600: 'hsl(var(--gray-600))',
+					700: 'hsl(var(--gray-700))',
+					800: 'hsl(var(--gray-800))',
+					900: 'hsl(var(--gray-900))',
+					950: 'hsl(var(--gray-950))',
+				},
+				
+				/* Brand Purple */
+				purple: {
+					25: 'hsl(var(--purple-25))',
+					50: 'hsl(var(--purple-50))',
+					100: 'hsl(var(--purple-100))',
+					200: 'hsl(var(--purple-200))',
+					300: 'hsl(var(--purple-300))',
+					400: 'hsl(var(--purple-400))',
+					500: 'hsl(var(--purple-500))',
+					600: 'hsl(var(--purple-600))',
+					700: 'hsl(var(--purple-700))',
+					800: 'hsl(var(--purple-800))',
+					900: 'hsl(var(--purple-900))',
+					950: 'hsl(var(--purple-950))',
+				},
+				
+				/* Error Red */
+				red: {
+					25: 'hsl(var(--red-25))',
+					50: 'hsl(var(--red-50))',
+					100: 'hsl(var(--red-100))',
+					200: 'hsl(var(--red-200))',
+					300: 'hsl(var(--red-300))',
+					400: 'hsl(var(--red-400))',
+					500: 'hsl(var(--red-500))',
+					600: 'hsl(var(--red-600))',
+					700: 'hsl(var(--red-700))',
+					800: 'hsl(var(--red-800))',
+					900: 'hsl(var(--red-900))',
+					950: 'hsl(var(--red-950))',
+				},
+				
+				/* Warning Orange-Yellow */
+				orange: {
+					25: 'hsl(var(--orange-25))',
+					50: 'hsl(var(--orange-50))',
+					100: 'hsl(var(--orange-100))',
+					200: 'hsl(var(--orange-200))',
+					300: 'hsl(var(--orange-300))',
+					400: 'hsl(var(--orange-400))',
+					500: 'hsl(var(--orange-500))',
+					600: 'hsl(var(--orange-600))',
+					700: 'hsl(var(--orange-700))',
+					800: 'hsl(var(--orange-800))',
+					900: 'hsl(var(--orange-900))',
+					950: 'hsl(var(--orange-950))',
+				},
+				
+				/* Success Green */
+				green: {
+					25: 'hsl(var(--green-25))',
+					50: 'hsl(var(--green-50))',
+					100: 'hsl(var(--green-100))',
+					200: 'hsl(var(--green-200))',
+					300: 'hsl(var(--green-300))',
+					400: 'hsl(var(--green-400))',
+					500: 'hsl(var(--green-500))',
+					600: 'hsl(var(--green-600))',
+					700: 'hsl(var(--green-700))',
+					800: 'hsl(var(--green-800))',
+					900: 'hsl(var(--green-900))',
+					950: 'hsl(var(--green-950))',
+				},
+				
+				/* Secondary Orange */
+				'sec-orange': {
+					25: 'hsl(var(--sec-orange-25))',
+					50: 'hsl(var(--sec-orange-50))',
+					100: 'hsl(var(--sec-orange-100))',
+					200: 'hsl(var(--sec-orange-200))',
+					300: 'hsl(var(--sec-orange-300))',
+					400: 'hsl(var(--sec-orange-400))',
+					500: 'hsl(var(--sec-orange-500))',
+					600: 'hsl(var(--sec-orange-600))',
+					700: 'hsl(var(--sec-orange-700))',
+					800: 'hsl(var(--sec-orange-800))',
+					900: 'hsl(var(--sec-orange-900))',
+					950: 'hsl(var(--sec-orange-950))',
+				},
+				
+				/* Light Blue */
+				blue: {
+					25: 'hsl(var(--blue-25))',
+					50: 'hsl(var(--blue-50))',
+					100: 'hsl(var(--blue-100))',
+					200: 'hsl(var(--blue-200))',
+					300: 'hsl(var(--blue-300))',
+					400: 'hsl(var(--blue-400))',
+					500: 'hsl(var(--blue-500))',
+					600: 'hsl(var(--blue-600))',
+					700: 'hsl(var(--blue-700))',
+					800: 'hsl(var(--blue-800))',
+					900: 'hsl(var(--blue-900))',
+					950: 'hsl(var(--blue-950))',
+				},
+				
+				/* Design System */
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))',
@@ -36,6 +154,14 @@ export default {
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))'
+				},
+				success: {
+					DEFAULT: 'hsl(var(--success))',
+					foreground: 'hsl(var(--success-foreground))'
+				},
+				warning: {
+					DEFAULT: 'hsl(var(--warning))',
+					foreground: 'hsl(var(--warning-foreground))'
 				},
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
