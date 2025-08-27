@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useTheme } from "@/contexts/ThemeContext";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -91,6 +92,7 @@ const menuItems = [
     title: "Settings",
     icon: Settings,
     items: [
+      { title: "Theme Editor", href: "/settings" },
       { title: "Client Types", href: "/settings/client-types" },
       { title: "Client Groups", href: "/settings/client-groups" },
       { title: "Client General Files", href: "/settings/files" },
@@ -184,6 +186,7 @@ const menuItems = [
 
 export function Sidebar() {
   const location = useLocation();
+  const { branding } = useTheme();
   const [openSections, setOpenSections] = useState<string[]>([]);
 
   const toggleSection = (title: string) => {
@@ -207,9 +210,19 @@ export function Sidebar() {
       <div className="flex h-16 items-center border-b border-border px-6">
         <div className="flex items-center gap-2">
           <div className="h-8 w-8 rounded-lg bg-gradient-primary flex items-center justify-center">
-            <Activity className="h-5 w-5 text-primary-foreground" />
+            <img 
+              src={branding.logo} 
+              alt={branding.appName} 
+              className="h-5 w-5"
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = 'none';
+                const fallback = (e.target as HTMLImageElement).nextElementSibling as HTMLElement;
+                if (fallback) fallback.style.display = 'block';
+              }}
+            />
+            <Activity className="h-5 w-5 text-primary-foreground hidden" />
           </div>
-          <h1 className="text-xl font-bold text-foreground">FitPro</h1>
+          <h1 className="text-xl font-bold text-foreground">{branding.appName}</h1>
         </div>
       </div>
       

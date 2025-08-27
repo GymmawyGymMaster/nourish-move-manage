@@ -1,4 +1,5 @@
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
+import { useTheme } from "@/contexts/ThemeContext";
 import { StatsCard } from "@/components/dashboard/StatsCard";
 import { RecentActivity } from "@/components/dashboard/RecentActivity";
 import { QuickActions } from "@/components/dashboard/QuickActions";
@@ -14,8 +15,10 @@ import {
 } from "lucide-react";
 
 const Index = () => {
+  const { branding } = useTheme();
+  
   return (
-    <DashboardLayout title="Dashboard">
+    <DashboardLayout title={branding.dashboardTitle}>
       <div className="space-y-6">
         {/* Stats Grid */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
