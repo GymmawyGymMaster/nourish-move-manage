@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ColorPicker } from "@/components/ui/color-picker";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useState } from "react";
 import { Upload, RefreshCw, Save, Eye } from "lucide-react";
@@ -182,53 +183,26 @@ export default function Settings() {
                   <CardDescription>Main brand colors used throughout the application</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="primary">Primary</Label>
-                    <div className="flex gap-2">
-                      <Input
-                        id="primary"
-                        value={tempColors.primary}
-                        onChange={(e) => handleColorChange('primary', e.target.value)}
-                        placeholder="224 71% 64%"
-                      />
-                      <div 
-                        className="w-10 h-10 rounded border"
-                        style={{ backgroundColor: `hsl(${tempColors.primary})` }}
-                      />
-                    </div>
-                  </div>
+                  <ColorPicker
+                    label="Primary"
+                    value={tempColors.primary}
+                    onChange={(value) => handleColorChange('primary', value)}
+                    placeholder="224 71% 64%"
+                  />
 
-                  <div className="space-y-2">
-                    <Label htmlFor="secondary">Secondary</Label>
-                    <div className="flex gap-2">
-                      <Input
-                        id="secondary"
-                        value={tempColors.secondary}
-                        onChange={(e) => handleColorChange('secondary', e.target.value)}
-                        placeholder="220 14.3% 95.9%"
-                      />
-                      <div 
-                        className="w-10 h-10 rounded border"
-                        style={{ backgroundColor: `hsl(${tempColors.secondary})` }}
-                      />
-                    </div>
-                  </div>
+                  <ColorPicker
+                    label="Secondary"
+                    value={tempColors.secondary}
+                    onChange={(value) => handleColorChange('secondary', value)}
+                    placeholder="220 14.3% 95.9%"
+                  />
 
-                  <div className="space-y-2">
-                    <Label htmlFor="accent">Accent</Label>
-                    <div className="flex gap-2">
-                      <Input
-                        id="accent"
-                        value={tempColors.accent}
-                        onChange={(e) => handleColorChange('accent', e.target.value)}
-                        placeholder="220 14.3% 95.9%"
-                      />
-                      <div 
-                        className="w-10 h-10 rounded border"
-                        style={{ backgroundColor: `hsl(${tempColors.accent})` }}
-                      />
-                    </div>
-                  </div>
+                  <ColorPicker
+                    label="Accent"
+                    value={tempColors.accent}
+                    onChange={(value) => handleColorChange('accent', value)}
+                    placeholder="220 14.3% 95.9%"
+                  />
                 </CardContent>
               </Card>
 
@@ -238,53 +212,26 @@ export default function Settings() {
                   <CardDescription>Colors for success, warning, and error states</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="success">Success</Label>
-                    <div className="flex gap-2">
-                      <Input
-                        id="success"
-                        value={tempColors.success}
-                        onChange={(e) => handleColorChange('success', e.target.value)}
-                        placeholder="142 76% 36%"
-                      />
-                      <div 
-                        className="w-10 h-10 rounded border"
-                        style={{ backgroundColor: `hsl(${tempColors.success})` }}
-                      />
-                    </div>
-                  </div>
+                  <ColorPicker
+                    label="Success"
+                    value={tempColors.success}
+                    onChange={(value) => handleColorChange('success', value)}
+                    placeholder="142 76% 36%"
+                  />
 
-                  <div className="space-y-2">
-                    <Label htmlFor="warning">Warning</Label>
-                    <div className="flex gap-2">
-                      <Input
-                        id="warning"
-                        value={tempColors.warning}
-                        onChange={(e) => handleColorChange('warning', e.target.value)}
-                        placeholder="38 92% 50%"
-                      />
-                      <div 
-                        className="w-10 h-10 rounded border"
-                        style={{ backgroundColor: `hsl(${tempColors.warning})` }}
-                      />
-                    </div>
-                  </div>
+                  <ColorPicker
+                    label="Warning"
+                    value={tempColors.warning}
+                    onChange={(value) => handleColorChange('warning', value)}
+                    placeholder="38 92% 50%"
+                  />
 
-                  <div className="space-y-2">
-                    <Label htmlFor="destructive">Error/Destructive</Label>
-                    <div className="flex gap-2">
-                      <Input
-                        id="destructive"
-                        value={tempColors.destructive}
-                        onChange={(e) => handleColorChange('destructive', e.target.value)}
-                        placeholder="0 84% 60%"
-                      />
-                      <div 
-                        className="w-10 h-10 rounded border"
-                        style={{ backgroundColor: `hsl(${tempColors.destructive})` }}
-                      />
-                    </div>
-                  </div>
+                  <ColorPicker
+                    label="Error/Destructive"
+                    value={tempColors.destructive}
+                    onChange={(value) => handleColorChange('destructive', value)}
+                    placeholder="0 84% 60%"
+                  />
                 </CardContent>
               </Card>
 
@@ -294,53 +241,26 @@ export default function Settings() {
                   <CardDescription>Background and surface colors</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="background">Background</Label>
-                    <div className="flex gap-2">
-                      <Input
-                        id="background"
-                        value={tempColors.background}
-                        onChange={(e) => handleColorChange('background', e.target.value)}
-                        placeholder="0 0% 100%"
-                      />
-                      <div 
-                        className="w-10 h-10 rounded border"
-                        style={{ backgroundColor: `hsl(${tempColors.background})` }}
-                      />
-                    </div>
-                  </div>
+                  <ColorPicker
+                    label="Background"
+                    value={tempColors.background}
+                    onChange={(value) => handleColorChange('background', value)}
+                    placeholder="0 0% 100%"
+                  />
 
-                  <div className="space-y-2">
-                    <Label htmlFor="card">Card</Label>
-                    <div className="flex gap-2">
-                      <Input
-                        id="card"
-                        value={tempColors.card}
-                        onChange={(e) => handleColorChange('card', e.target.value)}
-                        placeholder="0 0% 100%"
-                      />
-                      <div 
-                        className="w-10 h-10 rounded border"
-                        style={{ backgroundColor: `hsl(${tempColors.card})` }}
-                      />
-                    </div>
-                  </div>
+                  <ColorPicker
+                    label="Card"
+                    value={tempColors.card}
+                    onChange={(value) => handleColorChange('card', value)}
+                    placeholder="0 0% 100%"
+                  />
 
-                  <div className="space-y-2">
-                    <Label htmlFor="surface">Surface</Label>
-                    <div className="flex gap-2">
-                      <Input
-                        id="surface"
-                        value={tempColors.surface}
-                        onChange={(e) => handleColorChange('surface', e.target.value)}
-                        placeholder="220 14.3% 95.9%"
-                      />
-                      <div 
-                        className="w-10 h-10 rounded border"
-                        style={{ backgroundColor: `hsl(${tempColors.surface})` }}
-                      />
-                    </div>
-                  </div>
+                  <ColorPicker
+                    label="Surface"
+                    value={tempColors.surface}
+                    onChange={(value) => handleColorChange('surface', value)}
+                    placeholder="220 14.3% 95.9%"
+                  />
                 </CardContent>
               </Card>
 
@@ -350,53 +270,26 @@ export default function Settings() {
                   <CardDescription>Foreground and text colors</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="foreground">Foreground</Label>
-                    <div className="flex gap-2">
-                      <Input
-                        id="foreground"
-                        value={tempColors.foreground}
-                        onChange={(e) => handleColorChange('foreground', e.target.value)}
-                        placeholder="222.2 84% 4.9%"
-                      />
-                      <div 
-                        className="w-10 h-10 rounded border"
-                        style={{ backgroundColor: `hsl(${tempColors.foreground})` }}
-                      />
-                    </div>
-                  </div>
+                  <ColorPicker
+                    label="Foreground"
+                    value={tempColors.foreground}
+                    onChange={(value) => handleColorChange('foreground', value)}
+                    placeholder="222.2 84% 4.9%"
+                  />
 
-                  <div className="space-y-2">
-                    <Label htmlFor="muted">Muted</Label>
-                    <div className="flex gap-2">
-                      <Input
-                        id="muted"
-                        value={tempColors.muted}
-                        onChange={(e) => handleColorChange('muted', e.target.value)}
-                        placeholder="210 40% 96%"
-                      />
-                      <div 
-                        className="w-10 h-10 rounded border"
-                        style={{ backgroundColor: `hsl(${tempColors.muted})` }}
-                      />
-                    </div>
-                  </div>
+                  <ColorPicker
+                    label="Muted"
+                    value={tempColors.muted}
+                    onChange={(value) => handleColorChange('muted', value)}
+                    placeholder="210 40% 96%"
+                  />
 
-                  <div className="space-y-2">
-                    <Label htmlFor="mutedForeground">Muted Foreground</Label>
-                    <div className="flex gap-2">
-                      <Input
-                        id="mutedForeground"
-                        value={tempColors.mutedForeground}
-                        onChange={(e) => handleColorChange('mutedForeground', e.target.value)}
-                        placeholder="215.4 16.3% 46.9%"
-                      />
-                      <div 
-                        className="w-10 h-10 rounded border"
-                        style={{ backgroundColor: `hsl(${tempColors.mutedForeground})` }}
-                      />
-                    </div>
-                  </div>
+                  <ColorPicker
+                    label="Muted Foreground"
+                    value={tempColors.mutedForeground}
+                    onChange={(value) => handleColorChange('mutedForeground', value)}
+                    placeholder="215.4 16.3% 46.9%"
+                  />
                 </CardContent>
               </Card>
             </div>
