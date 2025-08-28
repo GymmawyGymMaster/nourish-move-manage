@@ -93,6 +93,7 @@ const menuItems = [
     icon: Settings,
     items: [
       { title: "Theme Editor", href: "/settings" },
+      { title: "Mobile Customization", href: "/mobile-customization" },
       { title: "Client Types", href: "/settings/client-types" },
       { title: "Client Groups", href: "/settings/client-groups" },
       { title: "Client General Files", href: "/settings/files" },

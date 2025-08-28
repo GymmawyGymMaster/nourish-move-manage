@@ -12,6 +12,7 @@ import CalendarNext from "./pages/CalendarNext";
 import Leads from "./pages/Leads";
 import LeadsCharts from "./pages/LeadsCharts";
 import Settings from "./pages/Settings";
+import MobileCustomization from "./pages/MobileCustomization";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/leads" element={<Leads />} />
             <Route path="/leads/charts" element={<LeadsCharts />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/mobile-customization" element={<MobileCustomization />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

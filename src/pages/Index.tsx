@@ -26,12 +26,12 @@ const Index = () => {
   const metrics = mockDashboardMetrics;
   
   return (
-    <DashboardLayout title={branding.dashboardTitle}>
+    <DashboardLayout title="Dashboard">
       <div className="space-y-6">
         {/* Welcome Message */}
         <div className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg p-6 border border-primary/20">
           <h2 className="text-2xl font-bold text-foreground mb-2">
-            Hi Yussef Ashraf
+            Hi, Yussef Ashraf
           </h2>
           <p className="text-muted-foreground">
             Welcome back! Your clients are excitedly looking forward to your next steps.
@@ -41,42 +41,7 @@ const Index = () => {
         {/* Subscription Alert */}
         <SubscriptionAlert subscription={metrics.subscription} />
 
-        {/* Key Metrics */}
-        <div className="grid gap-4 md:grid-cols-3">
-          <StatsCard
-            title="Remaining Days"
-            value={`${metrics.subscription.remainingPercentage}%`}
-            icon={Calendar}
-            description={`${metrics.subscription.daysLeft} days left`}
-          />
-          <StatsCard
-            title="Active Clients"
-            value="90%"
-            change={`${metrics.activeClients} clients`}
-            changeType="positive"
-            icon={Users}
-          />
-          <StatsCard
-            title="Active Team Members"
-            value={`${metrics.activeTeamMembers}%`}
-            change="No active members"
-            changeType="neutral"
-            icon={UserCheck}
-          />
-        </div>
-
-        {/* Main Dashboard Content */}
-        <div className="grid gap-6 lg:grid-cols-2">
-          <ClientBreakdown breakdown={metrics.clientBreakdown} />
-          <BusinessGrowth growth={metrics.businessGrowth} />
-        </div>
-
-        <div className="grid gap-6 lg:grid-cols-2">
-          <PlanStatus planStatus={metrics.planStatus} />
-          <QuickReports />
-        </div>
-
-        {/* Secondary Stats */}
+        {/* Main Stats Row */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <StatsCard
             title="Total Clients"
@@ -108,11 +73,44 @@ const Index = () => {
           />
         </div>
 
-        {/* Activity and Actions */}
-        <div className="grid gap-6 lg:grid-cols-2">
-          <RecentActivity />
-          <QuickActions />
+        {/* Secondary Stats Row */}
+        <div className="grid gap-4 md:grid-cols-3">
+          <StatsCard
+            title="Remaining Days"
+            value={`${metrics.subscription.remainingPercentage}%`}
+            icon={Calendar}
+            description={`${metrics.subscription.daysLeft} days left`}
+          />
+          <StatsCard
+            title="Active Clients"
+            value="90%"
+            change={`${metrics.activeClients} clients`}
+            changeType="positive"
+            icon={Users}
+          />
+          <StatsCard
+            title="Active Team Members"
+            value={`${metrics.activeTeamMembers}%`}
+            change="No active members"
+            changeType="neutral"
+            icon={UserCheck}
+          />
         </div>
+
+        {/* Overall Clients */}
+        <ClientBreakdown breakdown={metrics.clientBreakdown} />
+
+        {/* Today's Business Growth */}
+        <BusinessGrowth growth={metrics.businessGrowth} />
+
+        {/* Plan Status and Reports */}
+        <div className="grid gap-6 lg:grid-cols-2">
+          <PlanStatus planStatus={metrics.planStatus} />
+          <QuickReports />
+        </div>
+
+        {/* Recent Activity */}
+        <RecentActivity />
       </div>
     </DashboardLayout>
   );
