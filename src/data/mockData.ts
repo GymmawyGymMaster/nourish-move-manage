@@ -1,11 +1,51 @@
 // Mock data for the fitness management system
 
+// Dashboard Overview Interfaces
+export interface SubscriptionStatus {
+  isExpiring: boolean;
+  daysLeft: number;
+  hoursLeft: number;
+  remainingPercentage: number;
+}
+
+export interface ClientStatusBreakdown {
+  active: { count: number; percentage: number };
+  onHold: { count: number; percentage: number };
+  prestart: { count: number; percentage: number };
+  expired: { count: number; percentage: number };
+  refunded: { count: number; percentage: number };
+  noSubscription: { count: number; percentage: number };
+  total: number;
+}
+
+export interface BusinessGrowth {
+  dailyNewClients: { count: number; percentage: number };
+  dailyRenewals: { count: number; percentage: number };
+}
+
+export interface PlanStatus {
+  diet: { current: number; total: number };
+  resistance: { current: number; total: number };
+  fitness: { current: number; total: number };
+  mobility: { current: number; total: number };
+}
+
+export interface DashboardMetrics {
+  subscription: SubscriptionStatus;
+  clientBreakdown: ClientStatusBreakdown;
+  businessGrowth: BusinessGrowth;
+  planStatus: PlanStatus;
+  activeClients: number;
+  activeTeamMembers: number;
+  totalClients: number;
+}
+
 export interface Client {
   id: string;
   name: string;
   email: string;
   phone: string;
-  status: 'active' | 'inactive' | 'pending';
+  status: 'active' | 'inactive' | 'pending' | 'on-hold' | 'prestart' | 'expired' | 'refunded' | 'no-subscription';
   joinDate: string;
   avatar?: string;
   program?: string;
@@ -291,3 +331,35 @@ export const mockLeadSourceData = [
   { source: 'Ads', count: 5, percentage: 7 },
   { source: 'Other', count: 1, percentage: 1 },
 ];
+
+// Dashboard Overview Mock Data
+export const mockDashboardMetrics: DashboardMetrics = {
+  subscription: {
+    isExpiring: true,
+    daysLeft: 3,
+    hoursLeft: 20,
+    remainingPercentage: 9,
+  },
+  clientBreakdown: {
+    active: { count: 334, percentage: 74.06 },
+    onHold: { count: 7, percentage: 1.55 },
+    prestart: { count: 69, percentage: 15.30 },
+    expired: { count: 37, percentage: 8.20 },
+    refunded: { count: 4, percentage: 0.89 },
+    noSubscription: { count: 0, percentage: 0.00 },
+    total: 451,
+  },
+  businessGrowth: {
+    dailyNewClients: { count: 0, percentage: 0 },
+    dailyRenewals: { count: 0, percentage: 0 },
+  },
+  planStatus: {
+    diet: { current: 0, total: 46 },
+    resistance: { current: 0, total: 44 },
+    fitness: { current: 0, total: 0 },
+    mobility: { current: 0, total: 6 },
+  },
+  activeClients: 334,
+  activeTeamMembers: 0,
+  totalClients: 451,
+};

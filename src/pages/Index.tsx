@@ -3,6 +3,12 @@ import { useTheme } from "@/contexts/ThemeContext";
 import { StatsCard } from "@/components/dashboard/StatsCard";
 import { RecentActivity } from "@/components/dashboard/RecentActivity";
 import { QuickActions } from "@/components/dashboard/QuickActions";
+import { SubscriptionAlert } from "@/components/dashboard/SubscriptionAlert";
+import { ClientBreakdown } from "@/components/dashboard/ClientBreakdown";
+import { BusinessGrowth } from "@/components/dashboard/BusinessGrowth";
+import { PlanStatus } from "@/components/dashboard/PlanStatus";
+import { QuickReports } from "@/components/dashboard/QuickReports";
+import { mockDashboardMetrics } from "@/data/mockData";
 import {
   Users,
   Calendar,
@@ -12,27 +18,77 @@ import {
   Utensils,
   ClipboardCheck,
   DollarSign,
+  UserCheck,
 } from "lucide-react";
 
 const Index = () => {
   const { branding } = useTheme();
+  const metrics = mockDashboardMetrics;
   
   return (
     <DashboardLayout title={branding.dashboardTitle}>
       <div className="space-y-6">
-        {/* Stats Grid */}
+        {/* Welcome Message */}
+        <div className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg p-6 border border-primary/20">
+          <h2 className="text-2xl font-bold text-foreground mb-2">
+            Hi Yussef Ashraf
+          </h2>
+          <p className="text-muted-foreground">
+            Welcome back! Your clients are excitedly looking forward to your next steps.
+          </p>
+        </div>
+
+        {/* Subscription Alert */}
+        <SubscriptionAlert subscription={metrics.subscription} />
+
+        {/* Key Metrics */}
+        <div className="grid gap-4 md:grid-cols-3">
+          <StatsCard
+            title="Remaining Days"
+            value={`${metrics.subscription.remainingPercentage}%`}
+            icon={Calendar}
+            description={`${metrics.subscription.daysLeft} days left`}
+          />
+          <StatsCard
+            title="Active Clients"
+            value="90%"
+            change={`${metrics.activeClients} clients`}
+            changeType="positive"
+            icon={Users}
+          />
+          <StatsCard
+            title="Active Team Members"
+            value={`${metrics.activeTeamMembers}%`}
+            change="No active members"
+            changeType="neutral"
+            icon={UserCheck}
+          />
+        </div>
+
+        {/* Main Dashboard Content */}
+        <div className="grid gap-6 lg:grid-cols-2">
+          <ClientBreakdown breakdown={metrics.clientBreakdown} />
+          <BusinessGrowth growth={metrics.businessGrowth} />
+        </div>
+
+        <div className="grid gap-6 lg:grid-cols-2">
+          <PlanStatus planStatus={metrics.planStatus} />
+          <QuickReports />
+        </div>
+
+        {/* Secondary Stats */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <StatsCard
             title="Total Clients"
-            value="1,234"
+            value={metrics.totalClients.toString()}
             change="+12% from last month"
             changeType="positive"
             icon={Users}
           />
           <StatsCard
             title="Active Programs"
-            value="567"
-            change="+8% from last month"
+            value="96"
+            change="All programs running"
             changeType="positive"
             icon={Activity}
           />
@@ -49,38 +105,6 @@ const Index = () => {
             change="+15% from last month"
             changeType="positive"
             icon={DollarSign}
-          />
-        </div>
-
-        {/* Secondary Stats */}
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          <StatsCard
-            title="Workout Plans"
-            value="89"
-            change="Active programs"
-            changeType="neutral"
-            icon={Dumbbell}
-          />
-          <StatsCard
-            title="Diet Plans"
-            value="156"
-            change="Nutritional programs"
-            changeType="neutral"
-            icon={Utensils}
-          />
-          <StatsCard
-            title="Check-ins Pending"
-            value="34"
-            change="Awaiting response"
-            changeType="neutral"
-            icon={ClipboardCheck}
-          />
-          <StatsCard
-            title="Growth Rate"
-            value="23%"
-            change="Monthly increase"
-            changeType="positive"
-            icon={TrendingUp}
           />
         </div>
 
